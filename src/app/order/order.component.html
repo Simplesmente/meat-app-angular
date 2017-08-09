@@ -1,0 +1,116 @@
+ <!--INICIO DO CONTEUDO-->
+ <section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+
+    <form [formGroup]="orderForm" novalidate>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
+          </h2>
+        </div>
+      </div>                
+
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="lead">Seus Dados:</p>
+        </div>
+
+        <div class="col-sm-6 col-xs 12">
+            <mt-input-container label="Nome">
+                <input  class="form-control" placeholder="Nome" type="text" FormControlName="name" autocomplete="off">
+            </mt-input-container>
+        </div>
+
+         <div class="col-sm-3 col-xs-6">
+            <mt-input-container  label="E-mail">
+                <input  class="form-control" placeholder="E-mail" type="text" FormControlName="email" autocomplete="off">
+            </mt-input-container>
+        </div>
+
+         <div class="col-sm-3 col-xs-6">
+            <mt-input-container label="Confirme e-mail">
+                <input  class="form-control" placeholder="Confirme e-mail" type="text" FormControlName="emailConfirmation" autocomplete="off">
+            </mt-input-container>
+        </div>
+      </div>
+
+      <div class="row invoice-info">
+        <div class="col-xs-12">
+          <p class="lead">Endereço de Entrega:</p>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <mt-input-container  label="Endereço">
+              <input  class="form-control" placeholder="Endereço" type="text" FormControlName="address" autocomplete="off">
+          </mt-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+
+          <mt-input-container label="Número">
+            <input  class="form-control" placeholder="Número" type="text" FormControlName="number" autocomplete="off">
+          </mt-input-container>
+
+        </div>
+        <div class="col-sm-3 col-xs-6">
+
+           <mt-input-container label="Complemento">
+            <input  class="form-control" placeholder="Complemento" type="text" FormControlName="optionalAddress" autocomplete="off">
+          </mt-input-container>
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="lead">Itens do Pedido:</p>
+        </div>
+
+        <mt-order-items [items]="cartItems()" 
+                        (increaseQuantity)="increase($event)"
+                        (decreaseQuantity)="decrease($event)"
+                        (remove)="remove($event)"></mt-order-items>
+        
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-sm-6 col-xs-12">
+          <p class="lead">Formas de Pagamento:</p>
+          
+          <div class="form-group">
+            <mt-radio [options]="paymentsOptions" FormControlName="paymentsOption"></mt-radio>
+          </div>
+      
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-6 col-xs-12">
+      <p class="lead">Frete e Total:</p>
+        
+      <mt-delivery-costs [delivery]="delivery" 
+                          [itemsValue]="itemsValue()"></mt-delivery-costs>
+     
+    </div>
+    <!-- /.col -->
+  </div>
+  
+</form>
+
+<div class="row">
+  <div class="col-xs-12">
+    <button (click)="checkOrder(orderForm.value)" class="btn btn-success pull-right" [disabled]="!orderForm.valid || cartItems().length === 0" >
+      <i class="fa fa-credit-card"></i> Concluir Pedido
+    </button>
+  </div>
+</div>
+
+</section>
+</section>
+<!-- FIM DO CONTEUDO-->

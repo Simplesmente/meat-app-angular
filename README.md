@@ -4,7 +4,7 @@
 
 ### Clonando o Repositório
 
-`git clone https://github.com/cod3rcursos/meat-app-starter.git`
+`https://github.com/Simplesmente/meat-app-angular.git`
 
 ### Instalando as Dependências
 
@@ -22,7 +22,7 @@
 
 ### Iniciando o serviço (raiz da aplicação)
 
-`json-server db.json`
+`npm run backend`
 
 ## Goodies
 
@@ -38,6 +38,5 @@ Expressões regulares usadas na validação de formulários
 
 ## Créditos
 
-Todas as imagens usadas na aplicação são pertencentes a freepik.com
-# meat-app-angular
+Curso provido por https://github.com/cod3rcursos
 # meat-app-angular
