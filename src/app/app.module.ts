@@ -3,6 +3,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules} from '@angular/router';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {SharedModule} from './shared/shared.module';
 
@@ -14,17 +15,14 @@ import { HomeComponent } from './home/home.component';
 import {ROUTES} from './app.routes';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestaurantComponent } from './restaurantes/restaurant/restaurant.component';
-// import {RestaurantesService} from './restaurantes/restaurantes.service';
 import { RestaurantsDetailComponent } from './restaurants-detail/restaurants-detail.component';
 import { MenuComponent } from './restaurants-detail/menu/menu.component';
 import { ShoopingCartComponent } from './restaurants-detail/shooping-cart/shooping-cart.component';
 import { MenuItemComponent } from './restaurants-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurants-detail/reviews/reviews.component';
-// import {ShoppingCartService} from './restaurants-detail/shooping-cart/shooping-cart.service';
-
-// import { OrderService } from './order/order.service';
 import { OrderSummaryComponent } from './order/order-summary/order-summary.component';
 import {CoreModule} from './core/core.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -40,6 +38,7 @@ import {CoreModule} from './core/core.module';
     MenuItemComponent,
     ReviewsComponent,
     OrderSummaryComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +47,8 @@ import {CoreModule} from './core/core.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule.forRoot(),
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule
   ],
   providers: [{provide:LOCALE_ID,useValue:'pt-BR'}],
   bootstrap: [AppComponent]
